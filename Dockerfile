@@ -12,4 +12,5 @@ RUN curl -s https://getcomposer.org/installer | php && \
 
 # App
 COPY . .
-RUN composer install
+RUN composer install && \
+    composer dump-autoload
