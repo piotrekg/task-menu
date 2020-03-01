@@ -1,0 +1,21 @@
+<?php
+
+$finder = PhpCsFixer\Finder::create()
+    ->in('src')
+    ->in('tests')
+;
+
+return PhpCsFixer\Config::create()
+    ->setFinder($finder)
+    ->setRiskyAllowed(true)
+    ->setRules([
+        '@Symfony' => true,
+        'array_syntax' => ['syntax' => 'short'],
+        'declare_strict_types' => true,
+        'no_unused_imports' => true,
+        'multiline_comment_opening_closing' => false,
+        'no_superfluous_phpdoc_tags' => true,
+        'ordered_imports' => ['sort_algorithm' => 'alpha'],
+        'final_internal_class' => true,
+    ])
+;

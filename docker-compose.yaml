@@ -1,0 +1,44 @@
+version: '3.3'
+services:
+  php:
+    container_name: php
+    build:
+      context: .
+    env_file:
+      - .env.dev
+    volumes:
+      - ./:/app:cached
+    networks:
+      - app
+
+  nginx:
+    container_name: nginx
+    image: nginx:1.17
+    ports:
+      - 8080:8080
+    volumes:
+      - ./:/app:cached
+      - ./build/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      - app
+
+  db:
+    container_name: mysql
+    image: mysql:5.7
+    env_file:
+      - .env.dev
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - db-volume:/var/lib/mysql
+    networks:
+      - app
+
+volumes:
+  db-volume:
+
+networks:
+  app:
+    driver: bridge
