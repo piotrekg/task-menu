@@ -12,6 +12,9 @@ use Task\Domain\Menu\Exception\ReachedMaxChildrenLimit;
 use Task\Domain\Menu\Exception\ReachedMaxDepthLimit;
 use Task\Domain\Menu\Node;
 
+// we could use here some fancy test with dataProviders, etc
+// but here i want to test some parts and have full control about
+// what is going on inside domain
 class NodeTest extends TestCase
 {
     public function testCreate()
