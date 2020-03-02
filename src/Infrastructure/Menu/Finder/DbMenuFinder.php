@@ -19,6 +19,6 @@ class DbMenuFinder implements MenuFinder
         // - here we can use redis as well to have quick access to current full
         // model state representation
 
-        return Menu::fromArray();
+        return Menu::fromArray([]);
     }
 }
